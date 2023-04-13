@@ -1,4 +1,8 @@
 *.png
+test*
+release
+ckpt/
+depth/
 
 # sd1/
 # sd2/

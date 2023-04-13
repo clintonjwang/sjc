@@ -1,3 +1,13 @@
+# python ./run_sjc.py \
+# --sd.prompt "A zoomed out high quality photo of Temple of Heaven" \
+# --n_steps 10000 \
+# --lr 0.05 \
+# --sd.scale 100.0 \
+# --emptiness_weight 10000 \
+# --emptiness_step 0.5 \
+# --emptiness_multiplier 20.0 \
+# --depth_weight 0 \
+# --var_red False
 import math
 import numpy as np
 import torch
@@ -5,7 +15,8 @@ import torch.nn as nn
 from einops import rearrange
 from imageio import imwrite
 from pydantic import validator
-
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 from my.utils import (
     tqdm, EventStorage, HeartBeat, EarlyLoopBreak,
     get_event_storage, get_heartbeat, read_stats
